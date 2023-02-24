@@ -1,15 +1,24 @@
-BOT_NAME = 'pep_parse'
+import pathlib
 
-SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = 'pep_parse.spiders'
+from pep_parse.spiders.pep import PepSpider
+
+BOT_NAME = 'pep_parse'
+MODULE = 'pep_parse.spiders'
+
+SPIDER_MODULES = [MODULE]
+NEWSPIDER_MODULE = MODULE
+
+BASE_DIR = pathlib.Path(__file__).parent
+RESULTS = 'results'
+FORMAT = 'csv'
 
 ROBOTSTXT_OBEY = True
 
 FEEDS = {
-    'results/pep_%(time)s.csv': {
-        'format': 'csv',
+    f'{RESULTS}/{PepSpider.name}_%(time)s.csv': {
+        'format': FORMAT,
         'fields': ['number', 'name', 'status'],
-        'overwrite': False
+        'overwrite': True
     }
 }
 

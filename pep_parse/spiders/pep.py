@@ -6,16 +6,20 @@ from pep_parse.items import PepParseItem
 
 NUMBER_NAME_PATTERN = r'PEP\s(?P<number>\d+)\W+(?P<name>.+)$'
 
+DOMAIN = 'peps.python.org'
+
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
-    allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    allowed_domains = [DOMAIN]
+    start_urls = [f'https://{DOMAIN}/']
 
     def parse(self, response):
-        for row in response.css('#numerical-index tbody tr'):
+        for link in response.css(
+            '#numerical-index tbody tr a::attr(href)'
+        ).getall():
             yield response.follow(
-                row.css('a::attr(href)').get(),
+                link,
                 callback=self.parse_pep
             )
 
