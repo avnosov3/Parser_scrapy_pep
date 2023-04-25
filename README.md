@@ -1,41 +1,42 @@
-### Описание проекта:
+# Scrapy parser PEP
 
-Cбор информации о  количестве статусов PEP(выводит таблицу с колонками "Количество" и "Статус")
+Асинхронный парсинг документации Python.
+Парсер сохранит два файла в директории **/results**    
+* pep_<ДАТА>.csv - список всех PEP
+* status_summary_<ДАТА>.csv - сводная таблица по количеству статусов
 
-### Автор: [Артём Носов](https://github.com/avnosov3)
-
-### Техно-стек:
+## Техно-стек
 * python 3.7.9
 * scrapy 2.5.1
 
-### Как запустить парсер:
-
-Клонировать репозиторий и перейти в него в командной строке:
-
+## Как запустить парсер
+1. Клонировать репозиторий
 ```
 git clone git@github.com:avnosov3/scrapy_parser_pep.git
 ```
-
-Cоздать и активировать виртуальное окружение:
-
-```
-1. python3 -m venv env
-2. source venv/bin/activate
-```
-
-Установить зависимости из файла requirements.txt
+2. Перейти в папку с проектом и создать виртуальное окружение
 
 ```
-1.python3 -m pip install --upgrade pip
-2. pip install -r requirements.txt
+cd scrapy_parser_pep
 ```
-
-Запуска парсера
-
+```
+python3 -m venv env
+python -m venv venv (Windows)
+```
+3. Активировать виртуальное окружение
+```
+source env/bin/activate
+source venv/Scripts/activate (Windows)
+```
+4. Установить зависимости из файла requirements.txt
+```
+pip3 install -r requirements.txt
+pip install -r requirements.txt (Windows)
+```
+5. Запустить парсер
 ```
 scrapy crawl pep
 ```
 
-Парсер сохранит два файла в директории **/results**    
-* pep_<ДАТА>.csv - список всех PEP
-* status_summary_<ДАТА>.csv - сводная таблица по количеству статусов
+## Автор
+[Артём Носов](https://github.com/avnosov3)
