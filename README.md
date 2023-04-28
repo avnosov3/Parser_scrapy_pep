@@ -12,12 +12,12 @@
 ## Как запустить парсер
 1. Клонировать репозиторий
 ```
-git clone git@github.com:avnosov3/scrapy_parser_pep.git
+git@github.com:avnosov3/Scrapy_parser_pep.git
 ```
 2. Перейти в папку с проектом и создать виртуальное окружение
 
 ```
-cd scrapy_parser_pep
+cd Scrapy_parser_pep
 ```
 ```
 python3 -m venv env
