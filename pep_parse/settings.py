@@ -15,7 +15,7 @@ FORMAT = 'csv'
 ROBOTSTXT_OBEY = True
 
 FEEDS = {
-    f'{RESULTS}/{PepSpider.name}_%(time)s.csv': {
+    f'{BOT_NAME}/{RESULTS}/{PepSpider.name}_%(time)s.csv': {
         'format': FORMAT,
         'fields': ['number', 'name', 'status'],
         'overwrite': True
