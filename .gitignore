@@ -144,3 +144,5 @@ dmypy.json
 .history/
 .flake8
 results/
+tests/
+pytest.ini
